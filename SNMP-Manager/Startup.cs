@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SNMPManager.Controllers;
 using SNMPManager.Core.Entities;
 using SNMPManager.Core.Sonars.Repositories;
+using SNMPManager.Models;
 
 namespace SNMPManager
 {

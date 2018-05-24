@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using SNMPManager.Core.Entities;
 using SNMPManager.Core.Sonars.Exceptions;
 using SNMPManager.Core.Sonars.Repositories;
+using SNMPManager.Models;
 
 namespace SNMPManager.Controllers
 {
@@ -140,31 +141,5 @@ namespace SNMPManager.Controllers
                 return NotFound();
             }
         }
-    }
-
-    public class CreateSonarDto
-    {
-        public string Title { get; set; }
-        public string IpAddress { get; set; }
-        public string Mib { get; set; }
-        public bool IsActive { get; set; }
-    }
-
-    public class SonarDto
-    {
-        public SonarDto(string id, string title, string ipAddress, string mib, bool isActive)
-        {
-            Id = id;
-            Title = title;
-            IpAddress = ipAddress;
-            Mib = mib;
-            IsActive = isActive;
-        }
-
-        public string Id { get; }
-        public string Title { get; }
-        public string IpAddress { get; }
-        public string Mib { get; }
-        public bool IsActive { get; }
     }
 }
