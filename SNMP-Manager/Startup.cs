@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
+using BuildingBlocks.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using SNMPManager.Controllers;
+using SNMPManager.Core.Entities;
+using SNMPManager.Core.Sonars.Repositories;
 
-namespace SNMP_Manager
+namespace SNMPManager
 {
     public class Startup
     {
@@ -24,6 +25,16 @@ namespace SNMP_Manager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            const string connection = @"Server=localhost;Database=SnmpManager;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<SnmpManagerContext>(options => options.UseSqlServer(connection));
+
+            services.AddTransient<SonarsRepository>();
+            services.AddAutoMapper(cfg =>
+                {
+                    cfg.CreateMap<Sonar, SonarDto>();
+                    cfg.CreateMap<Guid, string>().ConvertUsing(g => g.ToString("N"));
+                    cfg.CreateMap<CreateSonarDto, Sonar>();
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

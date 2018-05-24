@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNMP-Manager", "SNMP-Manager\SNMP-Manager.csproj", "{0ADFEA07-8D50-4614-B4FB-BCD7D70B4544}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNMPManager", "SNMP-Manager\SNMPManager.csproj", "{0ADFEA07-8D50-4614-B4FB-BCD7D70B4544}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNMPManager.Core", "..\SNMPManager.Core\SNMPManager.Core.csproj", "{82EC1E84-EB8F-48DF-B94A-B282A7F517CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{8B198090-326E-481D-9CB4-72921D455113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Data", "BuildingBlocks\BuildingBlocks.Data\BuildingBlocks.Data.csproj", "{51C4FCAF-B204-4940-9B55-56C4A8368E3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,20 @@ Global
 		{0ADFEA07-8D50-4614-B4FB-BCD7D70B4544}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ADFEA07-8D50-4614-B4FB-BCD7D70B4544}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ADFEA07-8D50-4614-B4FB-BCD7D70B4544}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82EC1E84-EB8F-48DF-B94A-B282A7F517CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82EC1E84-EB8F-48DF-B94A-B282A7F517CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82EC1E84-EB8F-48DF-B94A-B282A7F517CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82EC1E84-EB8F-48DF-B94A-B282A7F517CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C4FCAF-B204-4940-9B55-56C4A8368E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C4FCAF-B204-4940-9B55-56C4A8368E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C4FCAF-B204-4940-9B55-56C4A8368E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C4FCAF-B204-4940-9B55-56C4A8368E3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{51C4FCAF-B204-4940-9B55-56C4A8368E3C} = {8B198090-326E-481D-9CB4-72921D455113}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {62DCC53C-06B4-4780-B1C5-0A82344F6AD9}
