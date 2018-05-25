@@ -26,6 +26,7 @@ namespace SNMPManager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSignalR();
             const string connection = @"Server=localhost;Database=SnmpManager;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<SnmpManagerContext>(options => options.UseSqlServer(connection));
 
@@ -36,6 +37,18 @@ namespace SNMPManager
                     cfg.CreateMap<Guid, string>().ConvertUsing(g => g.ToString("N"));
                     cfg.CreateMap<CreateSonarDto, Sonar>();
                 });
+
+            services.AddCors(
+                options => options.AddPolicy("AllowCors",
+                    builder =>
+                    {
+                        builder
+                            .AllowAnyOrigin()
+                            .AllowCredentials()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    })
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +59,11 @@ namespace SNMPManager
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("AllowCors");
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<SonarsHub>("/hubs/sonars");
+            });
             app.UseMvc();
         }
     }

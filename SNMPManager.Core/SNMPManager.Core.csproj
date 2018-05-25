@@ -13,4 +13,9 @@
     <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.Data\BuildingBlocks.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+    <Folder Include="Services\Snmp\" />
+  </ItemGroup>
+
 </Project>
