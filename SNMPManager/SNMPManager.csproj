@@ -20,8 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SNMPManager.Core\SNMPManager.Core.csproj" />
-    <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.Data\BuildingBlocks.Data.csproj" />
+    <ProjectReference Include="..\SNMPManager.Core\SNMPManager.Core.csproj" />
   </ItemGroup>
 
 </Project>
